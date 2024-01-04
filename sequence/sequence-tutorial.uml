@@ -1,0 +1,108 @@
+@startuml
+header PageHeader
+footer Page %page% of %lastpage%
+title __Simple__ **PlantUML**\nTutorial
+
+participant Participant as Foo
+actor Actor as Foo1
+boundary Boundary as Foo2
+control Control as Foo3
+entity Entity as Foo4
+database Database as Foo5
+collections Collections as Foo6
+queue Queue as Foo7
+
+Foo -> Foo1 : To actor
+Foo -> Foo2 : To boundary
+Foo -> Foo3 : To control
+Foo -> Foo4 : To entity
+Foo -> Foo5 : To database
+Foo -> Foo6 : To collections
+Foo --> Foo7 : To queue
+
+Foo -> Foo1 : ""-> ""
+Foo ->> Foo1 : ""->> ""
+Foo -\ Foo1 : ""-\ ""
+Foo -\\ Foo1 : ""-\\\\""
+Foo -/ Foo1 : ""-/ ""
+Foo -// Foo1 : ""-// ""
+Foo ->x Foo1 : ""->x ""
+Foo x-> Foo1 : ""x-> ""
+Foo o-> Foo1 : ""o-> ""
+Foo ->o Foo1 : ""->o ""
+Foo o->o Foo1 : ""o->o ""
+Foo <-> Foo1 : ""<-> ""
+Foo o<->o Foo1 : ""o<->o""
+Foo x<->x Foo1 : ""x<->x""
+Foo ->>o Foo1 : ""->>o ""
+Foo -\o Foo1 : ""-\o ""
+Foo -\\o Foo1 : ""-\\\\o""
+Foo -/o Foo1 : ""-/o ""
+Foo -//o Foo1 : ""-//o ""
+Foo x->o Foo1 : ""x->o ""
+Foo -[#red]> Foo1 : ""-[#red]>""
+Foo --[#0000FF]> Foo1 : ""--[#0000FF]>""
+Foo -> Foo1 !! : ""-> Foo1 !!""
+
+newpage 
+
+autonumber 10
+Foo -> Foo2 : xxx
+Foo -> Foo2 : xxx
+autonumber 100 "<b>(##)"
+Foo -> Foo2 : xxx
+autonumber 1000 "<font color=red><b>Number: [0]"
+Foo -> Foo2 : xxx
+note left Foo2 : autonumber=%autonumber%
+autonumber 2.3.1
+Foo -> Foo2 : xxx
+Foo -> Foo2 : xxx
+note right Foo2 : autonumber=%autonumber%
+autonumber stop
+note over Foo1, Foo3 #FF00FF : ActorとControlをまたぐnote
+hnote over Foo : 六角形note
+/ rnote over Foo2 : 四角形note
+/ note over Foo4
+  横並び+複数行
+  note
+endhnote
+note across : すべての分類子にまたがるnote
+
+Foo -> Foo3 : 遅延
+...
+Foo -> Foo3 : コメントつき遅延
+...5 minutes later...
+Foo -> Foo3 : xxx
+== 境界線 ==
+Foo -> Foo3 : 間隔を広げる
+|||
+Foo -> Foo3 : 間隔のピクセル指定
+||40||
+Foo -> Foo3 : xxx
+
+newpage
+Foo -> Foo1 : xxx
+activate Foo1
+Foo1 -> Foo2 : xxx
+activate Foo2
+Foo2 -> Foo3 : xxx
+activate Foo3 #FF0000
+Foo3 -> Foo3 : self
+activate Foo3 #FF00FF
+Foo3 -> Foo4 : xxx
+activate Foo4
+Foo4 -> Foo3 : xxx
+deactivate Foo4
+deactivate Foo3
+Foo3 -> Foo2 : xxx
+deactivate Foo3
+Foo2 -> Foo1 : xxx
+destroy Foo2
+Foo1 -> Foo : xxx
+deactivate Foo
+
+create Actor2
+Foo4 -> Actor2 : 新しい分類子の生成
+Actor2 --> Foo4
+
+@enduml
